@@ -3,6 +3,7 @@
 session_start();
 $_SESSION['user'] = (isset($_GET['user']) === true) ? (int)$_GET['user'] : 0;
 
+require 'core/init.php';
 
 ?>
 
@@ -16,7 +17,7 @@ $_SESSION['user'] = (isset($_GET['user']) === true) ? (int)$_GET['user'] : 0;
 
       <div class="messages">
 
-      
+
       </div>
       <textarea class="entry" placeholder="Type here and hit return and shift + return for a new line."></textarea>
 
