@@ -16,7 +16,7 @@ if (isset($_POST['method']) === true && empty($_POST['method']) === false) {
                 ?>
                 <div class ="message">
                     <a href="#"><?php echo $message['user_name']; ?></a> says:
-                    <p><?php echo $message['message'] ?></p>
+                    <p><?php echo nl2br($message['message']); ?></p>
                 </div>
                 <?php
               }
