@@ -7,22 +7,24 @@ if (isset($_POST['method']) === true && empty($_POST['method']) === false) {
     if ($method === 'fetch') {
         $messages = $chat->fetchMessages();
         if (empty($messages) === true) {
-            
+          echo 'There are currently no messages in the chat';
         } else {
-            foreach ($messages as $message) {
+            if (isset($message['user_name']) && $_GET['user_id'] !== 0) {
+              $message['user_name'] = $_GET['user_id'];
+            }
+              foreach ($messages as $message) {
                 ?>
                 <div class ="message">
-                    <a href=""><?php echo $message['username']; ?></a> says:
+                    <a href="#"><?php echo $message['user_name']; ?></a> says:
                     <p><?php echo $message['message'] ?></p>
                 </div>
                 <?php
-            }
+              }
         }
-    } else
-    if ($method === 'throw' && isset($_POST['message']) === true) {
+    } else if ($method === 'throw' && isset($_POST['message']) === true) {
         $message = trim($_POST['message']);
         if(empty($message) === false) {
-            $chat->throwMessage($_SESSION['user'], $message);
+            $chat->throwMessage($_SESSION['user_id'], $message);
         }
     }
 }

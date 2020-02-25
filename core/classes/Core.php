@@ -14,7 +14,7 @@ class Core {
     }
 
     public function rows() {
-        for($x = 1; $x <= $this->db->affected_rows;$x++) {
+        for($x = 1; $x <= $this->db->affected_rows; $x++) {
             $this->rows[] = $this->result->fetch_assoc();
         }
         return $this->rows;

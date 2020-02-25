@@ -1,12 +1,14 @@
 <?php
 
 session_start();
-$_SESSION['user'] = (isset($_GET['user']) === true) ? (int)$_GET['user'] : 0;
+$_SESSION['user_id'] = (isset($_GET['user_id']) === true) ? (int)$_GET['user_id'] : 0 ;
 
-require 'core/init.php';
+require 'core/classes/Core.php';
+require 'core/classes/Chat.php';
+
+
 
 ?>
-
 <html>
   <head>
     <title>AJAX Chat</title>
